@@ -1,0 +1,35 @@
+<div class="container">
+  <form [formGroup]="form" class="form">
+    <div class="form__block">
+      <h2>Komponent!</h2>
+      <label>Wpisz nazwę modułu!</label>
+      <input type="text" formControlName="module" placeholder="Nazwa modułu!" />
+      <label>Wpisz nazwę komponentu!</label>
+      <input
+        type="text"
+        formControlName="component"
+        placeholder="Nazwa komponentu!"
+      />
+    </div>
+    <div
+    class="form__block"
+    >
+    <h2>NGRX z entities!</h2>
+    <span>Chcę!</span>
+    <input type="radio" (change)="check = true"  name="radio"/>
+    <span>Nie chcę!</span>
+    <input type="radio" (change)="check = false" name="radio"/>
+    <label *ngIf="check">Wpisz nazwę modelu!</label>
+    <input *ngIf="check" type="text" formControlName="model" placeholder="Nazwa modelu!" />
+    </div>
+  </form>
+  <button
+    mat-raised-button
+    color="accent"
+    type="button"
+    (click)="generateModule()"
+  >
+    Pobierz moduł!
+  </button>
+  <mat-error *ngIf="errorMessage">{{ errorMessage }}</mat-error>
+</div>
